@@ -4,17 +4,20 @@ from random import randint
 def main():
     print("Welcome to the game of High-Low.")
 
+    name = input("what is your name: ")
     secret_num = randint(1, 100)
-    guess = int(input("Guess the secret number, from 1 to 100 : "))
+    print("I have a secret number from 1 to 100.")
 
-    while guess != secret_num:
+    while True:
+        guess = int(input("Guess the secret number : "))
         if guess > secret_num:
-            print("Too high.")
+            print("Sorry {}, {} is higher than the secret number.".format(name, guess))
+        elif guess < secret_num:
+            print("Sorry {}, {} is lower than the secret number.".format(name, guess))
         else:
-            print("Too low.")
-        guess = int(input("Guess the secret number, from 1 to 100 : "))
+            break
 
-    print("You guessed the secret number, it is {}".format(secret_num))
+    print("You guessed the secret number {}, it is {}".format(name, secret_num))
     exit()
 
 
